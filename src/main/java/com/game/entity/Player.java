@@ -5,9 +5,11 @@ import java.util.Date;
 
 @Entity
 @Table(name="player", schema = "rpg")
+@NamedQuery(name = "player_getAllCount", query = "select count(p) from Player p")
 public class Player {
     @Id
     @Column(name="id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name="name", nullable = false, length=12)
     private String name;
